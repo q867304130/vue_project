@@ -11,17 +11,23 @@ import VueRouter from 'vue-router' //导入路由模块
 
 Vue.use(VueRouter)  //手动安装路由模块到vue中
 
+import VueResource from 'vue-resource' //导入vue-resource模块
+Vue.use(VueResource)
+
 
 import router from './router.js' //导入自定义路由模块
 
-// import MintUi from 'mint-ui'    //完整导入MintUi
-// import 'mint-ui/lib/style.css'
-// Vue.use(MintUi)  
+import MintUi from 'mint-ui'    //完整导入MintUi
+import 'mint-ui/lib/style.css'
+Vue.use(MintUi)  
 
-import { Header } from 'mint-ui'  //按需导入MintUi
-Vue.component(Header.name, Header) 
+import { Header,Switch,SwipeItem } from 'mint-ui'  //按需导入MintUi
+Vue.component(Header.name,Header) 
+Vue.component(Switch.name,Switch)
+Vue.component(SwipeItem.name,SwipeItem)
 
 import  '../lib/mui/css/mui.css'
+import  '../lib/mui/css/icons-extra.css'
  
 
 

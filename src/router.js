@@ -1,10 +1,20 @@
 import VueRouter from 'vue-router'
 
+import home from '../components/tabbar/Home.vue'
+import member from '../components/tabbar/Member.vue'
+import shopcar from '../components/tabbar/Shopcar.vue'
+import search from '../components/tabbar/Search.vue'
+
 
 
 const router = new VueRouter({
-    routes:[
-]
+    routes:[{path:'/',redirect:'/home'},
+        {path:'/home',component:home},
+    {path:'/member',component:member},
+    {path:'/shopcar',component:shopcar},
+    {path:'/search',component:search}
+],
+linkActiveClass:'mui-active' //覆盖默认的路由高亮类，默认的类是router-link-active
 })
 
 export default router

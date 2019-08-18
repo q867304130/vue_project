@@ -1,9 +1,11 @@
 {
     "presets": ["env","stage-0"],
-    "plugins": ["transform-runtime",["component", [
-        {
-          "libraryName": "mint-ui",
-          "style": true
-        }
-      ]]]
+    "plugins": ["transform-runtime",
+      // ["component", [
+      //   {
+      //     "libraryName": "mint-ui",
+      //     "style": true
+      //   }
+      // ]] //Mint-ui按需引入配置
+    ]
 }
