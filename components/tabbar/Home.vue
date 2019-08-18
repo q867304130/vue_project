@@ -2,11 +2,11 @@
     <div>
         <!-- 轮播图 -->
   <mt-swipe :auto="4000">
-  <mt-swipe-item v-for="item in lubotuList" :key="item.url">
+  <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
       <img :src="item.url" :alt="item.alt">
   </mt-swipe-item>
   </mt-swipe>
-  <!-- 格子 -->
+  <!-- 格子图标 -->
   <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img src="./images/menu1.png" alt="">
@@ -36,7 +36,7 @@
 export default {
     data(){
         return{
-            lubotuList:[{url:"./images/轮播图/pic01.jpg" ,alt:'pic01.jpg'},
+            lunbotuList:[{url:"./images/轮播图/pic01.jpg" ,alt:'pic01.jpg'},
                         {url:"./images/轮播图/pic02.jpg" ,alt:'pic02.jpg'},
                         {url:"./images/轮播图/pic03.jpg" ,alt:'pic03.jpg'}]
         }
