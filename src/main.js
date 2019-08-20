@@ -21,10 +21,11 @@ import MintUi from 'mint-ui'    //完整导入MintUi
 import 'mint-ui/lib/style.css'
 Vue.use(MintUi)  
 
-import { Header,Switch,SwipeItem } from 'mint-ui'  //按需导入MintUi
+import { Header,Switch,SwipeItem,Button } from 'mint-ui'  //按需导入MintUi
 Vue.component(Header.name,Header) 
 Vue.component(Switch.name,Switch)
 Vue.component(SwipeItem.name,SwipeItem)
+Vue.component(Button.name,Button)
 
 import  '../lib/mui/css/mui.css'
 import  '../lib/mui/css/icons-extra.css'

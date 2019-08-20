@@ -7,14 +7,17 @@
         </p>
         <hr>
         <div class="content">
-
+            <comment :id="this.id"></comment>
         </div>
     </div>
 </template>
 
 <script>
+import comment from '../Comment.vue';
 export default {
-    
+    components:{
+        comment
+    }
 }
 </script>
 
