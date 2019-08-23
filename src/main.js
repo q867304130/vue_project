@@ -16,16 +16,16 @@ Vue.use(VueResource)
 
 
 import router from './router.js' //导入自定义路由模块
-
 import MintUi from 'mint-ui'    //完整导入MintUi
 import 'mint-ui/lib/style.css'
 Vue.use(MintUi)  
 
-import { Header,Switch,SwipeItem,Button } from 'mint-ui'  //按需导入MintUi
-Vue.component(Header.name,Header) 
-Vue.component(Switch.name,Switch)
-Vue.component(SwipeItem.name,SwipeItem)
-Vue.component(Button.name,Button)
+// import { Header,Switch,SwipeItem,Button ,Lazyload} from 'mint-ui'  //按需导入MintUi
+// Vue.component(Header.name,Header) 
+// Vue.component(Switch.name,Switch)
+// Vue.component(SwipeItem.name,SwipeItem)
+// Vue.component(Button.name,Button)
+// Vue.use(Lazyload)
 
 import  '../lib/mui/css/mui.css'
 import  '../lib/mui/css/icons-extra.css'

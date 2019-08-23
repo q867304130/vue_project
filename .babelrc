@@ -1,6 +1,6 @@
 {
     "presets": ["env","stage-0"],
-    "plugins": ["transform-runtime",
+    "plugins": ["transform-runtime","babel-plugin-transform-remove-strict-mode"//禁用WEBPACK的严格模式
       // ["component", [
       //   {
       //     "libraryName": "mint-ui",
