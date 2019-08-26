@@ -7,13 +7,27 @@ import Vue from 'vue'
 
 import app from './APP.vue' //导入APP组件
 
-import VueRouter from 'vue-router' //导入路由模块
-
+import VueRouter from 'vue-router' //导入路由模
 Vue.use(VueRouter)  //手动安装路由模块到vue中
 
 import VueResource from 'vue-resource' //导入vue-resource模块
 Vue.use(VueResource)
 
+import VueX from 'vueX'; //导入VueX模块
+Vue.use(VueX)
+
+var store = new VueX.Store({
+    state:{ //this.$store.***
+         
+    },
+    mutations:{ //this.$store.commit('方法名',按需传入唯一的参数)
+
+    },
+    getters:{ //this.$store.getters.***
+
+    }
+
+})
 
 import router from './router.js' //导入自定义路由模块
 import MintUi from 'mint-ui'    //完整导入MintUi
@@ -48,6 +62,7 @@ var vm =new Vue({
         msg:'wwwwwww'
     },
     render: c => c(app),
-    router
+    router,
+    store
 
 })

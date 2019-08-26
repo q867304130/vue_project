@@ -105,10 +105,11 @@ export default {
         //           Toast("获取新闻列表失败")
         //       }
         //   })     //从api获取数据
-
-        
-        }  
+          }  ,
+ getshopinoflist(){
+          
     },
+}
 }
 </script>
 

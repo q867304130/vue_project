@@ -15,6 +15,9 @@ import shopinfo from '../components/subcom/shopinfo/Shopinfo.vue'
 import liuyan from '../components/subcom/Liuyan.vue';
 import video from '../components/subcom/Video.vue';
 import callour from '../components/subcom/Callour.vue';
+import shopintroduce from '../components/subcom/shopinfo/Shopintroduce.vue';
+import shopcomment from '../components/subcom/shopinfo/Shopcomment.vue';
+
 
 
 
@@ -30,6 +33,8 @@ const router = new VueRouter({
     {path:'/home/Photolist',component:photolist},
     {path:'/home/shop',component:shop},
     {path:'/home/shopinfo/:id',component:shopinfo ,name:"shopinfo"},
+    {path:'/home/shopintroduce/:id',component:shopintroduce ,name:"shopintroduce"},
+    {path:'/home/shopcomment/:id',component:shopcomment ,name:"shopcomment"},
     {path:'/home/liuyan',component:liuyan},
     {path:'/home/video',component:video},
     {path:'/home/callour',component:callour}

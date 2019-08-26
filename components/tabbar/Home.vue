@@ -1,11 +1,7 @@
 <template>
     <div>
         <!-- 轮播图 -->
-  <mt-swipe :auto="4000">
-  <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
-      <img :src="item.url" :alt="item.alt">
-  </mt-swipe-item>
-  </mt-swipe>
+  <swiper :lunbotuList="lunbotuList"></swiper>
   <!-- 格子图标 -->
   <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newslist">
@@ -28,11 +24,11 @@
 		                    <div class="mui-media-body">联系我们</div></router-link></li>
 		            
 		        </ul>
-        <h3>Home</h3>
     </div>
 </template>
 
 <script>
+import swiper from  '../subcom/shopinfo/Swiper.vue'  //引用轮播图路由组件
 export default {
     data(){
         return{
@@ -43,6 +39,7 @@ export default {
     },
     created() {
         // this.getLunbotu() 
+    
     },
     methods: {
         // getLunbotu(){
@@ -53,27 +50,17 @@ export default {
         //         console.log("数据请求失败");
         //     });
         // }
+       
     },
+    components:{
+        swiper
+    }
 }
 </script>
 
 <style lang="sass" scoped>
-    .mint-swipe{
-        height: 200px;
-    }
-    .mint-swipe-item:nth-child(1){
-        background-color: red
-    }
-     .mint-swipe-item:nth-child(2){
-        background-color: blue
-     }
-      .mint-swipe-item:nth-child(3){
-          background-color: cyan
-      }
-      img{
-          width: 100%;
-          height: 100%;
-      }
+   
+    
       .mui-grid-view.mui-grid-9{
           background-color:white; 
           border: none;

@@ -7,7 +7,7 @@
         </p>
         <hr>
         <div class="content">
-            <comment :id="this.id"></comment>
+            <comment :id="this.$route.id"></comment>
         </div>
     </div>
 </template>
