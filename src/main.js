@@ -16,15 +16,44 @@ Vue.use(VueResource)
 import VueX from 'vueX'; //导入VueX模块
 Vue.use(VueX)
 
+var car = JSON.parse(localStorage.getItem('car'|| '[]' ))
+//每次进入网站，加载main.js，先从本地存储冲把购物车中的car数组读取出来
 var store = new VueX.Store({
     state:{ //this.$store.***
-         
+       car: car
     },
     mutations:{ //this.$store.commit('方法名',按需传入唯一的参数)
+    addToCar(state,shopsinfo){ 
+        //点击加入购物车，把商品信息保存到state中的car上
+        //如果购物车中有这个对于商品就更新数量，如果没有，则把商品数据push 到 car中
+        var flag = false;
+        state.car.some(item => {
+            if(item.id == shopsinfo.id){
+                item.count += parseInt(shopsinfo.count)
+                flag = true;
+                
+                return true
+                
+            }    
+        })
+        if(!flag){
+            state.car.push(shopsinfo)
+            
+        }
+        //当更新car之后，把car数组存储到本地 localstorage 中
+        localStorage.setItem('car',JSON.stringify(state.car))
+        
 
+    }
     },
     getters:{ //this.$store.getters.***
-
+        getAllCount(state){
+           var c = 0;
+           state.car.forEach(item => {
+               c += item.count
+           }) 
+           return c;
+        }
     }
 
 })

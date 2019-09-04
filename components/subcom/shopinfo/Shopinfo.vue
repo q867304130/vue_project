@@ -16,10 +16,10 @@
 						<p class="price">
                             市场价:<del >￥{{shopinfolist[id].market_price}}</del> &nbsp;&nbsp;销售价:<span class="now_price">￥{{shopinfolist[id].sell_price}}</span>
                         </p>
-                        <p>购买数量:<num_box></num_box></p>
+                        <p>购买数量:<num_box @getcount="getSelectCount"></num_box></p>
                         <p>
                             <mt-button type="primary" size="small">立即购买</mt-button>
-                            <mt-button type="danger" size="small">加入购物车</mt-button>
+                            <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
                             
                         </p>
 
@@ -53,18 +53,35 @@ export default {
     data(){
         return {
             id:this.$route.params.id,
-        shopinfolist:[{id:0,tittle:"华为（HUAWEI）荣耀6Plus 16G双4G版",add_time:"2015-04-19",sell_price:2195,market_price:2499,url:"https://g-search1.alicdn.com/img/bao/uploaded/i4/imgextra/i1/34403627/O1CN01mfXJ6D1cfD5IoazsU_!!0-saturn_solar.jpg_230x230.jpg_.webp" ,alt:'pic01.jpg'},
-                        {id:1,tittle:"小米(MI)Note 16G全网通",add_time:"2015-04-19",sell_price:899,market_price:999,url:"https://img14.360buyimg.com/n0/jfs/t28906/30/1571661431/255345/986f5fcb/5ce4148aN55586a52.jpg" ,alt:'pic02.jpg'},
-                        {id:2,tittle:"小米(MI)Note 16G全网通",add_time:"2015-04-19",sell_price:899,market_price:999,url:"https://img14.360buyimg.com/n0/jfs/t28906/30/1571661431/255345/986f5fcb/5ce4148aN55586a52.jpg" ,alt:'pic03.jpg'}]
+            selectedCount: 1,
+            shopinfolist:[{id:0,tittle:"华为（HUAWEI）荣耀6Plus 16G双4G版",add_time:"2015-04-19",sell_price:2195,market_price:2499,count:this.selectedCount,url:"https://g-search1.alicdn.com/img/bao/uploaded/i4/imgextra/i1/34403627/O1CN01mfXJ6D1cfD5IoazsU_!!0-saturn_solar.jpg_230x230.jpg_.webp" ,alt:'pic01.jpg'},
+                        {id:1,tittle:"小米(MI)Note 16G全网通",add_time:"2015-04-19",sell_price:899,market_price:999,count:this.selectedCount,url:"https://img14.360buyimg.com/n0/jfs/t28906/30/1571661431/255345/986f5fcb/5ce4148aN55586a52.jpg" ,alt:'pic02.jpg'},
+                        {id:2,tittle:"小米(MI)Note 16G全网通",add_time:"2015-04-19",sell_price:899,market_price:999,count:this.selectedCount,url:"https://img14.360buyimg.com/n0/jfs/t28906/30/1571661431/255345/986f5fcb/5ce4148aN55586a52.jpg" ,alt:'pic03.jpg'}]
         
         }
     },
     methods: {
-        getshopintroduce(id){
+        getshopintroduce(id){ 
             this.$router.push({name:'shopintroduce',params:{id:id}})
         },
         getshopcomment(id){
             this.$router.push({name:'shopcomment',params:{id:id}})
+        },
+        getSelectCount(count){
+            this.selectedCount = count;
+            console.log(this.selectedCount);
+        },
+        addToShopCar(){
+            var shopsinfo = {
+                id: this.id ,
+                count: this.selectedCount,
+                price: this.shopinfolist[this.id].sell_price,
+                select: true,
+                tittle:this.shopinfolist[this.id].tittle ,
+                img_src:this.shopinfolist[this.id].url
+            };
+            this.$store.commit("addToCar",shopsinfo)
+            
         }
         },
     components:{
