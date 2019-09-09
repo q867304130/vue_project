@@ -16,11 +16,12 @@ Vue.use(VueResource)
 import VueX from 'vueX'; //导入VueX模块
 Vue.use(VueX)
 
-var car = JSON.parse(localStorage.getItem('car'|| '[]' ))
+// var car = JSON.parse(localStorage.getItem('car'|| '[]' ))
 //每次进入网站，加载main.js，先从本地存储冲把购物车中的car数组读取出来
 var store = new VueX.Store({
     state:{ //this.$store.***
-       car: car
+       car: []
+    // car:[]
     },
     mutations:{ //this.$store.commit('方法名',按需传入唯一的参数)
     addToCar(state,shopsinfo){ 
@@ -41,18 +42,41 @@ var store = new VueX.Store({
             
         }
         //当更新car之后，把car数组存储到本地 localstorage 中
-        localStorage.setItem('car',JSON.stringify(state.car))
+        // localStorage.setItem('car',JSON.stringify(state.car))
         
 
+    },
+    //购物车numbox框 + - 数量变化
+    updateCount(state,countAndId){
+        state.car.some(item =>{
+            if(item.id == countAndId.shopid){
+                item.count = parseInt(countAndId.count)
+                
+                return true;
+            }
+        })
+    },
+    //购物车删除
+    removeFormCar(state,id){
+        state.car.some((item,i) =>{
+            if(item.id == id){
+                state.car.splice(i,1)
+                return true
+            }
+        })
     }
     },
     getters:{ //this.$store.getters.***
+        //相当于 计算属性，也相当于filter
         getAllCount(state){
-           var c = 0;
+           var c = 1; 
            state.car.forEach(item => {
-               c += item.count
+            c += item.count;
+            
+            console.log(c);
            }) 
            return c;
+           
         }
     }
 

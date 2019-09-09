@@ -16,7 +16,8 @@ export default {
     methods: {
         countChanged(){
             //每当文本款的暑假呗修改，立即把最新文本框值传个父组件
-             this.$emit("getcount",parseInt(this.$refs.numbox.value))
+             this.$emit("getcount",parseInt(this.$refs.numbox.value));
+             
             //  console.log(typeof this.$refs.numbox.value);
         }
     },

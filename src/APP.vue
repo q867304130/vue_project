@@ -85,17 +85,18 @@
 <script>
 import { Toast } from 'mint-ui';
 
+
 export default {
     
     data:function(){
         return{
-            appmsg:'appmsg',
+			appmsg:'appmsg'
         }
     },
     
     methods: {
+		
+	},
 
-    },
-    
 }
 </script>

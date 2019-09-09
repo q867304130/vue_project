@@ -2,7 +2,7 @@
     <div class="shopcar">
         <div class="shops-list" >
             <!-- 商品列表区域 -->
-            <div class="mui-card" v-for="item in shopcar" :key="item.id">
+            <div class="mui-card" v-for="(item , index) in shopcar" :key="item.id">
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
 						<mt-switch></mt-switch>
@@ -11,8 +11,8 @@
                             <h1>{{item.tittle}}</h1>
                             <p>
                                 <span class="price">￥{{item.price}}</span>
-                                <numbox @getcount="getCount"></numbox>
-                                <a href="#">删除</a>
+                                <numbox :shopid="item.id"  :numcount="item.count"></numbox>
+                                <a href="#" @click.prevent="remove(item.id,index)">删除</a>
                             </p>
                         </div>
 					</div>
@@ -21,9 +21,14 @@
             <!-- 结算区域 -->
             <div class="mui-card">
 				<div class="mui-card-content">
-					<div class="mui-card-content-inner">
-						这是一个最简单的卡片视图控件；卡片视图常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、点赞数量等
+					<div class="mui-card-content-inner jiesuan" >
+						<div class="left">
+                            <p>总计（不含运费）</p>
+                            <p>已勾选商品<span style="color:red">0</span>  件，总价￥<span style="color:red">0</span></p>
+                        </div>
+                        <mt-button type="danger">去结算</mt-button>
 					</div>
+                    
 				</div>
 			</div>
         </div>
@@ -39,16 +44,19 @@ export default {
     data() {
         return {
             shopcar : [],
-            count:this.shopcar[]
+            
+            
         }
     },
     methods: {
         getShopsList(){
         this.shopcar = this.$store.state.car;    
         },
-        getCount(count){
-
+        remove(id,index){
+            this.shopcar.splice(index,1),
+            this.$store.commit("removeFormCar",id)
         }
+       
     },
     components:{
         numbox
@@ -61,6 +69,11 @@ export default {
        background-color: #eee;
        overflow: hidden;
        .shops-list{
+           .jiesuan{
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               }
            .mui-card-content-inner{
                display: flex;
                align-items: center;

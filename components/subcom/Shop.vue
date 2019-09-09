@@ -48,7 +48,7 @@ export default {
            this.getShoplist();
        },
        getpath(id){
-        //    this.$router.push('"/home/shopinfo/"+ id')
+        //    this.$router.push('"/home/shopinfo/"+ id')  
         //    this.$router.push({path:"/home/shopinfo/"+id})
         this.$router.push({name:"shopinfo",params:{id:id}})
        }
